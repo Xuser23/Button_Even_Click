@@ -3,4 +3,14 @@
     <string name="tEmail">Email</string>
     <string name="tPassword">Password</string>
     <string name="bSignin">Sign In</string>
+    
+    <string-array name="emailUser">
+        <item>Devamahendra@gmail.com</item>
+        <item>Asyifaadya@gmail.com</item>
+    </string-array>
+
+    <string-array name="emailPass">
+        <item>12345</item>
+        <item>67890</item>
+    </string-array>
 </resources>

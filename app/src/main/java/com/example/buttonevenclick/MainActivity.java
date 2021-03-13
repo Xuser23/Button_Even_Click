@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnsignin;
@@ -20,26 +23,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String[] eUser = getResources().getStringArray(R.array.emailUser);
+        String[] ePass = getResources().getStringArray(R.array.emailPass);
+
         btnsignin= findViewById(R.id.btnSigIn);
         edemail = findViewById(R.id.edEmail);
         edpassword = findViewById(R.id.edPassword);
 
         btnsignin.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
+                if (Arrays.asList(eUser).contains(edemail) &&
+                        Arrays.asList(ePass).contains(edpassword)){
+                    Toast.makeText(MainActivity.this,
+                            "Login Berhasil",Toast.LENGTH_LONG).show();
 
-                nama = edemail.getText().toString();
-                password = edpassword.getText().toString();
-
-
-
-                Toast t = Toast.makeText(getApplicationContext(),
-                        "email anda: "+nama+" dan password anda: "+password+"", Toast.LENGTH_LONG);
-                t.show();
-
-
+                }else {
+                    Toast.makeText(MainActivity.this,
+                            "Login Gagal",Toast.LENGTH_LONG).show();
+                }
             }
         });
+
     }
 
 }
